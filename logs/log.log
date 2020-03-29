@@ -1,0 +1,8 @@
+14:30:36,411  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 161
+Date: Sun, 29 Mar 2020 06:30:36 GMT
+ ,Result {"status":1,"message":{"id":2,"createDate":1585452458000,"modifyDate":1585452461000,"name":"qqq","title":"111","description":"222","orderList":1,"iconPath":"1"}}
