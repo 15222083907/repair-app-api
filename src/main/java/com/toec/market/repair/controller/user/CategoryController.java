@@ -2,12 +2,10 @@ package com.toec.market.repair.controller.user;
 
 import com.toec.market.repair.beans.MessageResult;
 import com.toec.market.repair.controller.BaseController;
-import com.toec.market.repair.entity.AdminExample;
 import com.toec.market.repair.entity.Category;
 import com.toec.market.repair.entity.CategoryExample;
 import com.toec.market.repair.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,5 +70,26 @@ public class CategoryController extends BaseController {
             response.sendError(500);
             return null;
        }
+    }
+    @RequestMapping("/getAll")
+    public Object getAll(HttpServletRequest request, HttpServletResponse response)throws Exception{
+        MessageResult messageResult = new MessageResult();
+        try {
+            CategoryExample categoryExample = new CategoryExample();
+            CategoryExample.Criteria criteria = categoryExample.createCriteria();
+            List<Category> getCategory = categoryService.selectByExample(categoryExample);
+            if(getCategory != null && getCategory.size() != 0){
+                messageResult.setStatus(1);
+                messageResult.setMessage(getCategory);
+                return ajax(messageResult,response);
+            }else{
+                messageResult.setStatus(0);
+                messageResult.setMessage("查询失败！");
+                return ajax(messageResult,response);
+            }
+        }catch (Exception e){
+            response.sendError(500);
+            return null;
+        }
     }
 }

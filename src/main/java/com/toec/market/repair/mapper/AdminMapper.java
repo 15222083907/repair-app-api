@@ -4,6 +4,8 @@ import com.toec.market.repair.entity.Admin;
 import com.toec.market.repair.entity.AdminExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Select;
 
 public interface AdminMapper {
     /**
