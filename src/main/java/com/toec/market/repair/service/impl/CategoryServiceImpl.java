@@ -110,4 +110,9 @@ public class CategoryServiceImpl implements CategoryService{
 
 		return mapper.selectByExampleWithBLOBs(example);
 	}
+
+	@Override
+	public int insertWithMore(List<Category> list) {
+		return mapper.insertWithMore(list);
+	}
 }

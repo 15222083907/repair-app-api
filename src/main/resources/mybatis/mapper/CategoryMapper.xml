@@ -330,4 +330,13 @@
       icon_path = #{iconPath,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <insert id="insertWithMore" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+    insert into category (create_date,modify_date,name,title,
+    description,order_list,icon_path)
+    values <foreach collection="list" item="Category" separator=",">
+    (#{Category.createDate},#{Category.modifyDate},#{Category.name},
+    #{Category.title},#{Category.description},#{Category.orderList},
+    #{Category.iconPath})
+  </foreach>
+  </insert>
 </mapper>

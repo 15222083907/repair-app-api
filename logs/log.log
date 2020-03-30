@@ -1,8 +1,128 @@
-14:30:36,411  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+09:03:40,109  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
 Expires: Thu, 01 Jan 1970 00:00:00 GMT
 Pragma: no-cache
 Cache-Control: no-cache, no-store, max-age=0
 Content-Type: text/plain;charset=UTF-8
 Content-Length: 161
-Date: Sun, 29 Mar 2020 06:30:36 GMT
+Date: Mon, 30 Mar 2020 01:03:40 GMT
  ,Result {"status":1,"message":{"id":2,"createDate":1585452458000,"modifyDate":1585452461000,"name":"qqq","title":"111","description":"222","orderList":1,"iconPath":"1"}}
+09:28:44,869  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 161
+Date: Mon, 30 Mar 2020 01:28:44 GMT
+ ,Result {"status":1,"message":{"id":2,"createDate":1585452458000,"modifyDate":1585452461000,"name":"qqq","title":"111","description":"222","orderList":1,"iconPath":"1"}}
+09:49:43,147  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 01:49:43 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:09:10,648  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:09:10 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:13:33,939  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:13:33 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:14:45,918  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:14:45 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:22:46,314  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:22:46 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:32:45,015  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:32:45 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:34:36,534  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:34:36 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:35:56,674  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:35:56 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:36:11,565  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:36:11 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:36:13,723  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:36:13 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:36:44,442  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:36:44 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:36:56,737  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:36:56 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+10:37:17,833  INFO CategoryController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 46
+Date: Mon, 30 Mar 2020 02:37:17 GMT
+ ,Result {"status":1,"message":"多行插入成功！"}
+14:10:57,554  INFO AdminController:119 - Send Response: HTTP/1.1 200 XXXXX
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 49
+Date: Mon, 30 Mar 2020 06:10:57 GMT
+ ,Result {"status":0,"message":"用户名或密码错误"}

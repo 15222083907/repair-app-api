@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -35,5 +38,39 @@ public class CategoryController extends BaseController {
         result.setMessage(category);
         result.setStatus(1);
         return super.ajax(result,response);
+    }
+    @RequestMapping("/insert")
+    public Object insert(HttpServletRequest request, HttpServletResponse response)throws Exception{
+        MessageResult messageResult = new MessageResult();
+        Category category1 = new Category();
+        category1.setCreateDate(new Date());
+        category1.setId(6);
+        category1.setName("张强");
+        category1.setTitle("第一个数据");
+        category1.setIconPath("111");
+        Category category2 = new Category();
+        category2.setCreateDate(new Date());
+        category2.setName("张强");
+        category2.setTitle("第一个数据");
+        category2.setIconPath("222");
+        category2.setId(7);
+        List<Category> categoriesList = new ArrayList<>();
+        categoriesList.add(category1);
+        categoriesList.add(category2);
+       try {
+           int insert = categoryService.insertWithMore(categoriesList);
+           if(insert != 0){
+               messageResult.setStatus(1);
+               messageResult.setMessage("多行插入成功！");
+               return ajax(messageResult,response);
+           }else{
+               messageResult.setStatus(0);
+               messageResult.setMessage("多行插入失败！");
+               return ajax(messageResult,response);
+           }
+       }catch (Exception e){
+            response.sendError(500);
+            return null;
+       }
     }
 }

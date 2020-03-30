@@ -86,7 +86,7 @@ public abstract class BaseController {
 	}
 
 	/**
-	 * 得到request对象
+	 * 得到session对象
 	 * 
 	 * @return
 	 */
@@ -118,6 +118,5 @@ public abstract class BaseController {
         String responseString = HttpUtil.getResponseString(response);
    	    logger.info(String.format("Send Response: %s ,Result %s", responseString,responseResult));
 	}
-	 
 }
  

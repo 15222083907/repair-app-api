@@ -95,4 +95,7 @@ public interface CategoryMapper {
     int updateByPrimaryKey(Category record);
 
     List<Category> selectByExampleWithBLOBs(CategoryExample example);
+
+    //表示多行插入
+    int insertWithMore(List<Category> list);
 }

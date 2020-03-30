@@ -13,5 +13,4 @@ import com.toec.market.repair.convert.DateConverter;
      public void addFormatters(FormatterRegistry registry) {
          registry.addConverter(new DateConverter());
      }
-
 }
