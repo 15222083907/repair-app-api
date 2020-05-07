@@ -7,7 +7,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.zaxxer.hikari.HikariDataSource;
@@ -15,7 +14,6 @@ import com.zaxxer.hikari.HikariDataSource;
 @SpringBootApplication
 @EnableTransactionManagement//启用事务
 @MapperScan("com.toec.market.repair.mapper")
-//@ComponentScan("com.toec.market.repair")
 public class Application {
 
 	
@@ -42,7 +40,7 @@ public class Application {
 	public DataSource hikariDataSource() {
 		HikariDataSource dataSource = new HikariDataSource();
 		dataSource.setDriverClassName(driverClassName);
-		dataSource.setJdbcUrl(jdbcUrl );
+		dataSource.setJdbcUrl(jdbcUrl);
 		dataSource.setUsername(username);
 		dataSource.setPassword(password);
 		dataSource.setReadOnly(false);

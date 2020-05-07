@@ -1,0 +1,23 @@
+########################################################
+### server setting
+########################################################
+server:
+  servlet:
+    context-path: /
+  port: 8000
+jdbc:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/repair?allowMultiQueries=true&serverTimezone=GMT%2B8&useSSL=false
+  username: root
+  password: root
+  poolSize: 15
+spring:
+  thymeleaf:
+    suffix: .html
+    prefix: classpath:/templates/
+  mvc:
+    static-path-pattern: /**
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
