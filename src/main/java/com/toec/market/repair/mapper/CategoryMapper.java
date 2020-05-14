@@ -1,7 +1,5 @@
 package com.toec.market.repair.mapper;
 
-import com.toec.market.repair.entity.Category;
-import com.toec.market.repair.entity.CategoryExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

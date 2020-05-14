@@ -6,10 +6,12 @@ import javax.sql.DataSource;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.web.servlet.DispatcherServlet;
 
 @SpringBootApplication
 @EnableTransactionManagement//启用事务
@@ -50,5 +52,12 @@ public class Application {
 		dataSource.setMaximumPoolSize(poolSize);
 		return dataSource;
 	}
-	
+//
+//	@Bean
+//	public ServletRegistrationBean servletRegistrationBean(DispatcherServlet dispatcherServlet) {
+//		ServletRegistrationBean<DispatcherServlet> servletServletRegistrationBean =
+//				new ServletRegistrationBean<>(dispatcherServlet);
+//		servletServletRegistrationBean.addUrlMappings("*.do");
+//		return servletServletRegistrationBean;
+//	}
 }

@@ -17,7 +17,6 @@ spring:
     prefix: classpath:/templates/
   mvc:
     static-path-pattern: /**
-
 mybatis:
   config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml

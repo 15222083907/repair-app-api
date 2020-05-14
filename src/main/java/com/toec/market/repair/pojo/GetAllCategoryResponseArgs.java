@@ -2,9 +2,7 @@ package com.toec.market.repair.pojo;
 
 import java.util.List;
 
-import com.toec.market.repair.entity.Caonima;
 
- 
 public class GetAllCategoryResponseArgs {
 
 	private List<Caonima> categoryList;

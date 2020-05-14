@@ -4,9 +4,12 @@ import com.toec.market.repair.beans.MessageResult;
 import com.toec.market.repair.beans.UserInfoBean;
 import com.toec.market.repair.controller.BaseController;
 import com.toec.market.repair.entity.Passward;
+import com.toec.market.repair.entity.Role;
 import com.toec.market.repair.entity.User;
 import com.toec.market.repair.entity.UserExample;
-import com.toec.market.repair.mapper.PasswardMapper;
+import com.toec.market.repair.enums.RoleEnum;
+import com.toec.market.repair.service.PasswardService;
+import com.toec.market.repair.service.RoleService;
 import com.toec.market.repair.service.UserService;
 import com.toec.market.repair.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +28,12 @@ public class UserController extends BaseController{
     private UserService userService;
 
     @Autowired
-    private PasswardMapper passwardMapper;
-    /*
-    对用户的数量进行统计
-     */
+    private PasswardService passwardService;
+
+    @Autowired
+    private RoleService roleService;
+
+    //对用户的数量进行统计
     @RequestMapping(value = "/getUserByExample",method = RequestMethod.POST)
     @CrossOrigin
     public String getAllUserCount(String time1,String time2,User user,HttpServletRequest request, HttpServletResponse response,Integer limit,Integer size) throws Exception {
@@ -103,6 +108,7 @@ public class UserController extends BaseController{
         UserExample.Criteria criteria = userExample.createCriteria();
         if(id != null && id != ""){
             userService.deleteByPrimaryKey(id);
+            passwardService.deleteByPrimaryKey(id);
             result.setMessage("删除成功");
         }
         result.setStatus(1);
@@ -125,12 +131,13 @@ public class UserController extends BaseController{
             user.setId(id);
             user.setDatein(new Date());
             user.setStatus("已启用");
-            user.setPasswardId(id);
             user.setPhone(userInfoBean.getUser().getPhone());
             user.setGender(userInfoBean.getUser().getGender());
             user.setUsername(userInfoBean.getUser().getUsername());
             user.setEmail(userInfoBean.getUser().getEmail());
             user.setAddress(userInfoBean.getUser().getAddress());
+            user.setPasswardId(id);
+            user.setRoleId(id);
             Integer insert = userService.insert(user);
             if(insert != null && insert > 0){
                 result.setMessage("添加用户成功");
@@ -141,7 +148,7 @@ public class UserController extends BaseController{
             Passward passward = new Passward();
             passward.setId(id);
             passward.setPassward(userInfoBean.getPassward().getPassward());
-            Integer insert = passwardMapper.insert(passward);
+            Integer insert = passwardService.insert(passward);
             if(insert != null && insert > 0){
                 result.setMessage("添加密码成功");
                 result.setStatus(1);
@@ -174,6 +181,24 @@ public class UserController extends BaseController{
         return super.ajax(result,response);
     }
 
+    /*
+    根据id来更新数据
+     */
+    @RequestMapping("/updateById")
+    @CrossOrigin
+    public String updateUserStatus(HttpServletRequest request,HttpServletResponse response,
+                                   @RequestBody User user)throws Exception{
+        MessageResult result = new MessageResult();
+        UserExample userExample = new UserExample();
+        UserExample.Criteria criteria = userExample.createCriteria();
+        criteria.andIdEqualTo(user.getId());
+        user.setDatein(new Date());
+        userService.updateByExampleSelective(user,userExample);
+        result.setMessage("更新用户成功");
+        result.setStatus(1);
+        return super.ajax(result,response);
+    }
+
     /**
      自动插入数据
      */
@@ -184,7 +209,11 @@ public class UserController extends BaseController{
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         User user = new User();
+        Passward passward = new Passward();
+        Role role = new Role();
         for(int i = 0;i < 100000; i++){
+
+            //插入user
             String id = UUID.randomUUID().toString().substring(0,10);
             user.setId(id);
             user.setStatus("已启用");
@@ -192,15 +221,24 @@ public class UserController extends BaseController{
             user.setAddress("虚拟地址");
             user.setEmail(UUID.randomUUID().toString().substring(0,6)+"@163.com");
             user.setUsername(UUID.randomUUID().toString().substring(0,4));
-            user.setGender("男");
+            user.setGender("女");
             user.setPhone("13111111111");
             user.setPasswardId(id);
+            user.setRoleId(RoleEnum.vip_0.getName());
             Integer insert = userService.insert(user);
-            Passward passward = new Passward();
+
+            //插入passward
             passward.setPassward(UUID.randomUUID().toString().substring(0,10));
             passward.setId(id);
-            Integer insert1 = passwardMapper.insert(passward);
-            if(insert != null && insert >0 && insert1 != null && insert1 > 0){
+            Integer insert1 = passwardService.insert(passward);
+
+//            //插入role
+//            role.setId(id);
+//            role.setRolename("普通会员");
+//            Integer row = roleService.insert(role);
+            if(insert != null && insert >0
+                    && insert1 != null && insert1 > 0
+                    ){
                 System.out.println("第" + i + "条插入成功!");
             }
         }

@@ -1,16 +1,15 @@
 package com.toec.market.repair.service.impl;
 
-import com.toec.market.repair.entity.Category;
-import com.toec.market.repair.entity.CategoryExample;
 import com.toec.market.repair.entity.Passward;
 import com.toec.market.repair.entity.PasswardExample;
 import com.toec.market.repair.mapper.PasswardMapper;
 import com.toec.market.repair.service.PasswardService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PasswardServiceImpl implements PasswardService {
 
     @Autowired
@@ -19,7 +18,7 @@ public class PasswardServiceImpl implements PasswardService {
 
     @Override
     public Passward selectByPrimaryKey(String id) {
-        return null;
+        return mapper.selectByPrimaryKey(id);
     }
 
     @Override
@@ -39,7 +38,7 @@ public class PasswardServiceImpl implements PasswardService {
 
     @Override
     public void deleteByPrimaryKey(String id) {
-
+        mapper.deleteByPrimaryKey(id);
     }
 
     @Override
@@ -64,7 +63,7 @@ public class PasswardServiceImpl implements PasswardService {
 
     @Override
     public void updateByExample(Passward passward, PasswardExample example) {
-
+        mapper.updateByExample(passward,example);
     }
 
     @Override
