@@ -1,5 +1,5 @@
 package com.toec.market.repair.configuration;
-import com.toec.market.repair.Realm.CustomRealm;
+import com.toec.market.repair.service.Realm.CustomRealm;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -52,13 +52,15 @@ public class ShiroConfig {
         Map<String, String> map = new HashMap<>();
         //对所有用户认证
         map.put("/css/**","anon");
-         map.put("/js/**","anon");
-         map.put("/img/**","anon");
-         map.put("/images/**","anon");
-         map.put("/pic/**","anon");
-         map.put("/fonts/**","anon");
-         map.put("/login","anon");
-         map.put("/lib/layui/**","anon");
+        map.put("/js/**","anon");
+        map.put("/img/**","anon");
+        map.put("/images/**","anon");
+        map.put("/pic/**","anon");
+        map.put("/fonts/**","anon");
+        map.put("/login","anon");
+        map.put("/lib/layui/**","anon");
+         //登录的请求需要放行
+        map.put("/login/toLogin","anon");
         //登出
         map.put("/logout", "logout");
         //过滤器规则，从上而下顺序执行，将/**放在最后

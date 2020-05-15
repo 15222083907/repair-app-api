@@ -1,7 +1,7 @@
 package com.toec.market.repair.service.impl;
 
-import com.toec.market.repair.entity.Role;
-import com.toec.market.repair.entity.RoleExample;
+import com.toec.market.repair.pojo.Role;
+import com.toec.market.repair.Example.RoleExample;
 import com.toec.market.repair.mapper.RoleMapper;
 import com.toec.market.repair.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;

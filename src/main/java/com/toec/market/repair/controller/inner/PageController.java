@@ -1,4 +1,4 @@
-package com.toec.market.repair.controller.page;
+package com.toec.market.repair.controller.inner;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

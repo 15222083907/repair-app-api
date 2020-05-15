@@ -1,7 +1,7 @@
 package com.toec.market.repair.service.impl;
 
-import com.toec.market.repair.entity.Passward;
-import com.toec.market.repair.entity.PasswardExample;
+import com.toec.market.repair.pojo.Passward;
+import com.toec.market.repair.Example.PasswardExample;
 import com.toec.market.repair.mapper.PasswardMapper;
 import com.toec.market.repair.service.PasswardService;
 import org.springframework.beans.factory.annotation.Autowired;

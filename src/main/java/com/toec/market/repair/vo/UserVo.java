@@ -1,6 +1,6 @@
 package com.toec.market.repair.vo;
 
-import com.toec.market.repair.entity.User;
+import com.toec.market.repair.pojo.User;
 
 import java.util.List;
 

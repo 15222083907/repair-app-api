@@ -1,10 +1,9 @@
 package com.toec.market.repair.service.impl;
 
-import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
-import com.toec.market.repair.entity.Passward;
-import com.toec.market.repair.entity.Role;
-import com.toec.market.repair.entity.User;
-import com.toec.market.repair.entity.UserExample;
+import com.toec.market.repair.pojo.Passward;
+import com.toec.market.repair.pojo.Role;
+import com.toec.market.repair.pojo.User;
+import com.toec.market.repair.Example.UserExample;
 import com.toec.market.repair.mapper.PasswardMapper;
 import com.toec.market.repair.mapper.RoleMapper;
 import com.toec.market.repair.mapper.UserMapper;
@@ -47,7 +46,6 @@ public class LoginServiceImpl implements LoginService {
         //得到role
         Role role = roleMapper.selectByPrimaryKey(users.get(0).getRoleId());
         userAuthenticationVo.setRole(role);
-
         return userAuthenticationVo;
     }
 }

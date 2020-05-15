@@ -1,8 +1,7 @@
 package com.toec.market.repair.service;
 
-import com.toec.market.repair.entity.Role;
-import com.toec.market.repair.entity.RoleExample;
-import com.toec.market.repair.entity.UserExample;
+import com.toec.market.repair.pojo.Role;
+import com.toec.market.repair.Example.RoleExample;
 
 public interface RoleService extends BaseService<Role,String, RoleExample> {
 }

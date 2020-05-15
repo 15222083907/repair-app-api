@@ -1,9 +1,7 @@
 package com.toec.market.repair.service;
 
-import com.toec.market.repair.entity.PasswardExample;
-import com.toec.market.repair.entity.User;
-import com.toec.market.repair.entity.UserExample;
-import com.toec.market.repair.entity.Passward;
+import com.toec.market.repair.Example.PasswardExample;
+import com.toec.market.repair.pojo.Passward;
 
 public interface PasswardService extends BaseService<Passward,String, PasswardExample>  {
 }

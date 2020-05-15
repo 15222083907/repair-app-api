@@ -1,13 +1,13 @@
-package com.toec.market.repair.controller.user;
+package com.toec.market.repair.controller.inner;
 
-import com.toec.market.repair.beans.MessageResult;
-import com.toec.market.repair.beans.PasswardInfoBean;
 import com.toec.market.repair.controller.BaseController;
-import com.toec.market.repair.entity.PasswardExample;
+import com.toec.market.repair.vo.MessageResultVo;
+import com.toec.market.repair.beans.PasswardInfoBean;
+import com.toec.market.repair.Example.PasswardExample;
 import com.toec.market.repair.service.PasswardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.toec.market.repair.entity.Passward;
+import com.toec.market.repair.pojo.Passward;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,7 +23,7 @@ public class PasswardController extends BaseController {
     @CrossOrigin
     public String updatePasswardById(HttpServletRequest request, HttpServletResponse response,
                                      @RequestBody PasswardInfoBean passward) throws Exception {
-        MessageResult result = new MessageResult();
+        MessageResultVo result = new MessageResultVo();
         PasswardExample example = new PasswardExample();
         Passward truthPassward = passwardService.selectByPrimaryKey(passward.getPassward().getId());
         if(truthPassward != null

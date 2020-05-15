@@ -1,25 +1,30 @@
-package com.toec.market.repair.controller.login;
+package com.toec.market.repair.controller.inner;
 
 
-import com.toec.market.repair.beans.LoginBean;
-import com.toec.market.repair.entity.User;
+import com.toec.market.repair.enums.Status;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationException;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import org.apache.shiro.subject.Subject;
 
-@RestController
+@Controller
+@RequestMapping("/login")
 public class LoginController {
-    @RequestMapping("/login")
-    public String login(LoginBean user) {
+
+    @RequestMapping(value = "/toLogin",method = RequestMethod.POST)
+    @CrossOrigin
+    public String login(@RequestParam("username") String username,
+                        @RequestParam("password") String password,
+                        @RequestParam("rememberMe") Boolean rememberMe) {
         //添加用户认证信息
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(
-                user.getUser().getUsername(),user.getPassward().getPassward()
+                username,password
         );
+        usernamePasswordToken.setRememberMe(rememberMe);
         try {
             //进行验证，这里可以捕获异常，然后返回对应信息
             subject.login(usernamePasswordToken);
@@ -27,11 +32,13 @@ public class LoginController {
 //            subject.checkPermissions("query", "add");
         } catch (AuthenticationException e) {
             e.printStackTrace();
-            return "账号或密码错误！";
+//            return Status.usernameOrpasswardError.getName(); //401
+            return "/login";
         } catch (AuthorizationException e) {
             e.printStackTrace();
-            return "没有权限";
+//            return Status.noPermission.getName(); //402
+            return "/login"; //402
         }
-        return "login success";
+        return Status.success.getName();  //index
     }
 }

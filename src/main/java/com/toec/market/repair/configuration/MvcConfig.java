@@ -1,4 +1,4 @@
-package com.toec.market.repair;
+package com.toec.market.repair.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

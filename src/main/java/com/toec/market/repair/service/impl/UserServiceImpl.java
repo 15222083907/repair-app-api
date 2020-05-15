@@ -1,7 +1,7 @@
 package com.toec.market.repair.service.impl;
 
-import com.toec.market.repair.entity.User;
-import com.toec.market.repair.entity.UserExample;
+import com.toec.market.repair.pojo.User;
+import com.toec.market.repair.Example.UserExample;
 import com.toec.market.repair.mapper.UserMapper;
 import com.toec.market.repair.service.UserService;
 import com.toec.market.repair.vo.UserVo;

@@ -1,6 +1,6 @@
-package com.toec.market.repair.beans;
+package com.toec.market.repair.vo;
 
-public class MessageResult {
+public class MessageResultVo {
 
 
 		private int status;

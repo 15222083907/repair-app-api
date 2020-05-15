@@ -1,12 +1,12 @@
-package com.toec.market.repair.controller.user;
+package com.toec.market.repair.controller.inner;
 
-import com.toec.market.repair.beans.MessageResult;
-import com.toec.market.repair.beans.UserInfoBean;
 import com.toec.market.repair.controller.BaseController;
-import com.toec.market.repair.entity.Passward;
-import com.toec.market.repair.entity.Role;
-import com.toec.market.repair.entity.User;
-import com.toec.market.repair.entity.UserExample;
+import com.toec.market.repair.vo.MessageResultVo;
+import com.toec.market.repair.beans.UserInfoBean;
+import com.toec.market.repair.pojo.Passward;
+import com.toec.market.repair.pojo.Role;
+import com.toec.market.repair.pojo.User;
+import com.toec.market.repair.Example.UserExample;
 import com.toec.market.repair.enums.RoleEnum;
 import com.toec.market.repair.service.PasswardService;
 import com.toec.market.repair.service.RoleService;
@@ -22,7 +22,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
-public class UserController extends BaseController{
+public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
@@ -37,7 +37,7 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/getUserByExample",method = RequestMethod.POST)
     @CrossOrigin
     public String getAllUserCount(String time1,String time2,User user,HttpServletRequest request, HttpServletResponse response,Integer limit,Integer size) throws Exception {
-        MessageResult result = new MessageResult();
+        MessageResultVo result = new MessageResultVo();
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         if(time1 != null && time1 != ""){
@@ -85,7 +85,7 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/deleteAllUser",method = RequestMethod.POST)
     @CrossOrigin
     public String deleteAllUser(HttpServletRequest request, HttpServletResponse response,@RequestBody String[] ids) throws Exception{
-        MessageResult result = new MessageResult();
+        MessageResultVo result = new MessageResultVo();
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         if(ids != null && ids.length != 0){
@@ -103,7 +103,7 @@ public class UserController extends BaseController{
     @CrossOrigin
     public String deleteOneUser(HttpServletRequest request, HttpServletResponse response,
                                 @RequestParam("id") String id) throws Exception{
-        MessageResult result = new MessageResult();
+        MessageResultVo result = new MessageResultVo();
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         if(id != null && id != ""){
@@ -122,7 +122,7 @@ public class UserController extends BaseController{
     @CrossOrigin
     public String addOneUser(HttpServletRequest request,HttpServletResponse response,
                              @RequestBody UserInfoBean userInfoBean)throws Exception{
-        MessageResult result = new MessageResult();
+        MessageResultVo result = new MessageResultVo();
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         String id = UUID.randomUUID().toString().replace("-", "").substring(0,10);
@@ -165,7 +165,7 @@ public class UserController extends BaseController{
     public String updateUserStatus(HttpServletRequest request,HttpServletResponse response,
                                    @RequestParam("idContent") String id,
                                     @RequestParam("status") String status) throws Exception {
-        MessageResult result = new MessageResult();
+        MessageResultVo result = new MessageResultVo();
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         criteria.andIdEqualTo(id);
@@ -188,7 +188,7 @@ public class UserController extends BaseController{
     @CrossOrigin
     public String updateUserStatus(HttpServletRequest request,HttpServletResponse response,
                                    @RequestBody User user)throws Exception{
-        MessageResult result = new MessageResult();
+        MessageResultVo result = new MessageResultVo();
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         criteria.andIdEqualTo(user.getId());
@@ -205,7 +205,7 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/insertUserByAuto",method =RequestMethod.POST)
     @CrossOrigin
     public String insertUserByAuto(HttpServletRequest request,HttpServletResponse response)throws Exception{
-        MessageResult result = new MessageResult();
+        MessageResultVo result = new MessageResultVo();
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         User user = new User();
@@ -221,7 +221,7 @@ public class UserController extends BaseController{
             user.setAddress("虚拟地址");
             user.setEmail(UUID.randomUUID().toString().substring(0,6)+"@163.com");
             user.setUsername(UUID.randomUUID().toString().substring(0,4));
-            user.setGender("女");
+            user.setGender(getGender(i));
             user.setPhone("13111111111");
             user.setPasswardId(id);
             user.setRoleId(RoleEnum.vip_0.getName());
@@ -245,5 +245,9 @@ public class UserController extends BaseController{
         result.setMessage("插入成功");
         result.setStatus(1);
         return super.ajax(result,response);
+    }
+    //根据奇偶性来获取男女
+    private String getGender(int i) {
+        return i%2 == 0 ? "男" : "女";
     }
 }

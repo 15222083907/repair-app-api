@@ -1,6 +1,6 @@
 package com.toec.market.repair.beans;
 
-import com.toec.market.repair.entity.Passward;
+import com.toec.market.repair.pojo.Passward;
 
 public class PasswardInfoBean {
     private Passward passward;

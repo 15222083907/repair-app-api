@@ -1,7 +1,5 @@
-package com.toec.market.repair.Realm;
+package com.toec.market.repair.service.Realm;
 
-import com.toec.market.repair.beans.LoginBean;
-import com.toec.market.repair.entity.User;
 import com.toec.market.repair.service.LoginService;
 import com.toec.market.repair.vo.UserAuthenticationVo;
 import org.apache.shiro.authc.AuthenticationException;
@@ -42,7 +40,7 @@ public class CustomRealm extends AuthorizingRealm {
         } else {
             //这里验证authenticationToken和simpleAuthenticationInfo的信息
             SimpleAuthenticationInfo simpleAuthenticationInfo =
-                    new SimpleAuthenticationInfo(name, user.getPassward(), user.getUser().getUsername());
+                    new SimpleAuthenticationInfo(name, user.getPassward().getPassward(), user.getUser().getUsername());
             return simpleAuthenticationInfo;
         }
     }

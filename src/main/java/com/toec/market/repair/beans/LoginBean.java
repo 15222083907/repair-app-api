@@ -1,8 +1,8 @@
 package com.toec.market.repair.beans;
 
-import com.toec.market.repair.entity.Passward;
-import com.toec.market.repair.entity.Role;
-import com.toec.market.repair.entity.User;
+import com.toec.market.repair.pojo.Passward;
+import com.toec.market.repair.pojo.Role;
+import com.toec.market.repair.pojo.User;
 
 public class LoginBean {
     private User user;

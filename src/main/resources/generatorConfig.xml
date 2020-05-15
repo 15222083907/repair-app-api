@@ -32,7 +32,7 @@
             targetPackage：生成的类要放的包，真实的包受enableSubPackages属性控制；
             targetProject：目标项目，指定一个存在的目录下，生成的内容会放到指定目录中，如果目录不存在，MBG不会自动建目录
          -->
-        <javaModelGenerator targetPackage="com.toec.market.repair.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.toec.market.repair.Example" targetProject="src/main/java">
             <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false；如果多个数据库改为true分目录 -->
             <property name="enableSubPackages" value="false"/>
             <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
